@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+</head>
+
+<style>
+    * {
+        box-sizing: border-box;
+    }
+
+    #container {
+        border: 1px solid black;
+        height: 500px;
+        width: 500px;
+        margin: auto;
+    }
+
+    #box {
+        width: 100%;
+        height: 80%;
+        overflow-y: auto;
+    }
+
+    #msgbox {
+        border-top: 1px solid black;
+        width: 100%;
+        height: 20%;
+    }
+
+    #msg {
+        width: 100%;
+        height: 100%;
+    }
+</style>
+
+<body>
+    <div id="container">
+        <div id="box"></div>
+        <div id="msgbox">
+            <input type="text" id="msg" placeholder="메세지를 입력하세요">
+        </div>
+    </div>
+
+    <script>
+
+        function scrollToBottom() {
+            var element = document.getElementById("box");
+            element.scrollTop = element.scrollHeight;
+        }
+
+        $("#msg").on("keyup", function (key) {
+            
+            if (key.keyCode == 13) {
+                var msgline = $("<div>");
+                msgline.append($("#msg").val());
+                $("#box").append(msgline);
+                $("#msg").val("");
+                scrollToBottom();
+            }
+        })
+
+        $("#msg").css({ "border": "none" });
+
+    </script>
+
+</body>
+
+</html>
