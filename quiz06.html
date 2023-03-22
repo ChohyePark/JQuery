@@ -25,6 +25,7 @@
         width: 100%;
         height: 80%;
         overflow-y: auto;
+        word-wrap: break-word;
     }
 
     #msgbox {
@@ -37,6 +38,15 @@
         width: 100%;
         height: 100%;
     }
+
+    #msgline {
+        display: inline;
+        background-color: antiquewhite;
+        border-radius: 50px;
+        max-width: 100px;
+    }
+
+
 </style>
 
 <body>
@@ -50,22 +60,30 @@
     <script>
 
         function scrollToBottom() {
-            var element = document.getElementById("box");
+            let element = document.getElementById("box");
             element.scrollTop = element.scrollHeight;
         }
 
+        $("#msg").css({ "border": "none" });
+        $("#box").css({"background-color" : "pink"});
+       
+
         $("#msg").on("keyup", function (key) {
             
+            let date = new Date();
+
             if (key.keyCode == 13) {
-                var msgline = $("<div>");
-                msgline.append($("#msg").val());
+                let msgline = $("<div>");
+                msgline.append($("#msg").val() + "<br>");
+                // msgline.append(" "+date.getHours()+ ":" + date.getMinutes()+":"+date.getSeconds() + "<br>");  
+                msgline.attr('id','msgline');
                 $("#box").append(msgline);
                 $("#msg").val("");
                 scrollToBottom();
             }
         })
 
-        $("#msg").css({ "border": "none" });
+      
 
     </script>
 
