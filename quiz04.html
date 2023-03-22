@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+</head>
+
+<body>
+
+    <input type="text" id="id" placeholder="ID를 입력하세요"><br>
+    <input type="text" id="pw" placeholder="PW를 입력하세요"><br>
+    <div id="msg"></div>
+    <button id="btn">Test</button>
+
+    <script>
+
+        $("#pw").on("keyup", function () {
+            if ($("#id").val() != $("#pw").val()) {
+                $("#msg").text("패스워드가 일치하지 않습니다.")
+            } else {
+                $("#msg").text("패스워드가 일치합니다.")
+            }
+        }
+        )
+
+    </script>
+</body>
+
+</html>
