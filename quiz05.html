@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+</head>
+<style>
+    #box{
+        border: 1px solid black;
+        width: 400px;
+        height: 400px;
+        margin: auto;
+        overflow: hidden;
+    }
+    button{
+        margin: auto;
+    }
+    #btnbox{
+        text-align: center;
+    }
+    
+</style>
+<body>
+    
+    <div id="box"></div>
+    <div id="btnbox">
+    <button id="upbtn">
+        위로 추가하기
+    </button>
+    <button id="downbtn">
+        아래로 추가하기
+    </button>
+    </div>
+    <script>
+        
+        var count = 0;
+        $("#upbtn").on("click",function(){
+            $("#box").prepend("Contents Message"+count++ +"<br>");  
+        })
+
+       
+        var count = 0;
+        $("#downbtn").on("click",function(){
+            $("#box").append("Contents Message"+count-- +"<br>");
+        })
+
+
+    
+    </script>
+</body>
+</html>
